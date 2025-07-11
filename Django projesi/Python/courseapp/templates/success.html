@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="alert alert-success">
+        <h4 class="alert-heading">Başarılı!</h4>
+        <p>Dosya başarıyla yüklendi.</p>
+    </div>
+    <div class="mt-3">
+        <a href="{% url 'index' %}" class="btn btn-primary">Ana Sayfaya Dön</a>
+        <a href="javascript:history.back()" class="btn btn-secondary">Geri Dön</a>
+    </div>
+</div>
+{% endblock %}

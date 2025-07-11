@@ -1,0 +1,50 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'index' %}">Course App</a>
+  
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav me-auto">
+          <a class="nav-link" href="{% url 'index' %}">Ana Sayfa</a>
+          <a class="nav-link" href="{% url 'courses' %}">Kurslar</a>
+          {% if user.is_staff %}
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              Yönetim
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'course_create' %}">Kurs Ekle</a></li>
+              <li><a class="dropdown-item" href="{% url 'course_list' %}">Kurs Listesi</a></li>
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+        <div class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              {{ user.username }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="{% url 'user_profile' %}">Profil</a></li>
+              <li><a class="dropdown-item" href="{% url 'user_courses' %}">Kurslarım</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="{% url 'user_logout' %}">Çıkış Yap</a></li>
+            </ul>
+          </div>
+          {% else %}
+          <div class="nav-item">
+            <a class="nav-link" href="{% url 'user_login' %}">Giriş Yap</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" href="{% url 'user_register' %}">Kayıt Ol</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>

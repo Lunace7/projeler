@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>"{{ course.title }}" kursunu silmek istiyor musunuz?</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger" type="submit">Evet, Sil</button>
+    <a class="btn btn-secondary" href="{% url 'index' %}">İptal</a>
+  </form>
+</div>
+{% endblock %}

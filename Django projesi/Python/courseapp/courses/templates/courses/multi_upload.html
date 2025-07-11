@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Çoklu Dosya Yükleme</h2>
+    
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Dosyaları Yükle</button>
+    </form>
+
+    <div class="mt-4">
+        <a href="{% url 'index' %}" class="btn btn-secondary">Ana Sayfaya Dön</a>
+    </div>
+</div>
+{% endblock %} 

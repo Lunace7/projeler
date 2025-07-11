@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  {% block css_files %}{% endblock  %}
+
+  <title>{% block page_title %}{% endblock %} | CourseApp</title>
+</head>
+<body>
+
+{% include "partials/_navbar.html" %}
+
+{% block content %}{% endblock content %}
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var dropdowns = document.querySelectorAll('.dropdown-toggle');
+    dropdowns.forEach(function(dropdown) {
+      new bootstrap.Dropdown(dropdown);
+    });
+  });
+</script>
+{% block js_files %}{% endblock  %}
+</body>
+</html>

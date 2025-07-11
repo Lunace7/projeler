@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "courses/css/style.css" %}">
+{% endblock %}
+
+{% block page_title %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-sm table-bordered">
+          <thead>
+            <tr>
+              <th style="width:120px;"></th>
+              <th>Title</th>
+              <th>Slug</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for course in courses  %}
+              <tr>
+                <td>
+                  <img src="{% static 'courses/img/'|add:course.image %}" class="img-fluid">
+                </td>
+                <td>{{ course.title }}</td>
+                <td>{{ course.slug }}</td>
+                <td>
+                  <div class="d-flex justify-content-end mt-2">
+                    <a href="{% url 'update_course' course.id %}" class="btn btn-sm btn-warning me-2">Güncelle</a>
+                    <a href="{% url 'delete_course' course.id %}" class="btn btn-sm btn-danger">Sil</a>
+                  </div>  
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block js_files %}
+  <script src="{% static "courses/js/script.js" %}"></script>
+{% endblock  %}

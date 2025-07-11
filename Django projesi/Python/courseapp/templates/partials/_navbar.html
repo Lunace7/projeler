@@ -1,0 +1,93 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">CourseApp</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Ana Sayfa</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        Kurslar
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'courses' %}">
+                            <i class="fas fa-list me-2"></i>Tüm Kurslar
+                        </a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><h6 class="dropdown-header">Kategoriler</h6></li>
+                        {% for category in categories %}
+                            <li><a class="dropdown-item" href="{% url 'courses_by_category' category.slug %}">
+                                <i class="fas fa-folder me-2"></i>{{ category.name }}
+                            </a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-upload me-1"></i>Dosya Yükleme
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'upload_files' %}">
+                            <i class="fas fa-file-upload me-2"></i>Çoklu Dosya Yükleme
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'basic_upload' %}">
+                            <i class="fas fa-file me-2"></i>Temel Dosya Yükleme
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'model_form_upload' %}">
+                            <i class="fas fa-database me-2"></i>Model Form ile Yükleme
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'multi_upload' %}">
+                            <i class="fas fa-files me-2"></i>Çoklu Model Yükleme
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav ms-auto">
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'course_list' %}">Kurs Yönetimi</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="{% url 'user_profile' %}">
+                                <i class="fas fa-user me-2"></i>Profil
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'user_courses' %}">
+                                <i class="fas fa-book me-2"></i>Kurslarım
+                            </a></li>
+                            <li><a class="dropdown-item" href="{% url 'change_password' %}">
+                                <i class="fas fa-key me-2"></i>Parola Değiştir
+                            </a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="{% url 'user_logout' %}">
+                                <i class="fas fa-sign-out-alt me-2"></i>Çıkış
+                            </a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user_login' %}">
+                            <i class="fas fa-sign-in-alt me-1"></i>Giriş
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'user_register' %}">
+                            <i class="fas fa-user-plus me-1"></i>Kayıt Ol
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav> 

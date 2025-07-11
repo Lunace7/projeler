@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="mb-3">Kurslarım</h3>
+            {% if courses %}
+                <div class="row">
+                    {% for course in courses %}
+                        <div class="col-md-4 mb-3">
+                            {% include "courses/partials/_course.html" %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="alert alert-warning">
+                    Henüz kayıtlı olduğunuz bir kurs bulunmamaktadır.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

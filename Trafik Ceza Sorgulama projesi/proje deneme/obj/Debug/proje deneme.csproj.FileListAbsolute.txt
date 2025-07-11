@@ -1,0 +1,9 @@
+C:\Users\berke\source\repos\proje deneme\obj\Debug\proje deneme.csproj.AssemblyReference.cache
+C:\Users\berke\source\repos\proje deneme\obj\Debug\proje deneme.csproj.CoreCompileInputs.cache
+C:\Users\berke\source\repos\proje deneme\bin\Debug\proje deneme.exe.config
+C:\Users\berke\source\repos\proje deneme\bin\Debug\proje deneme.exe
+C:\Users\berke\source\repos\proje deneme\bin\Debug\proje deneme.pdb
+C:\Users\berke\source\repos\proje deneme\bin\Debug\System.Data.SQLite.dll
+C:\Users\berke\source\repos\proje deneme\obj\Debug\proje de.8AE607AF.Up2Date
+C:\Users\berke\source\repos\proje deneme\obj\Debug\proje deneme.exe
+C:\Users\berke\source\repos\proje deneme\obj\Debug\proje deneme.pdb

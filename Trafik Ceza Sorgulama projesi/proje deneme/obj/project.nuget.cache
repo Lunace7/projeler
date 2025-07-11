@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "yGdRejZJg9k=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\berke\\source\\repos\\proje deneme\\proje deneme.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\berke\\.nuget\\packages\\stub.system.data.sqlite.core.netframework\\1.0.119\\stub.system.data.sqlite.core.netframework.1.0.119.nupkg.sha512",
+    "C:\\Users\\berke\\.nuget\\packages\\system.data.sqlite.core\\1.0.119\\system.data.sqlite.core.1.0.119.nupkg.sha512"
+  ],
+  "logs": []
+}

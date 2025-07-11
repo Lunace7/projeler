@@ -1,0 +1,9 @@
+# Bağımlılıklar
+node_modules/
+venv/
+
+# Çevre Değişkenleri Dosyası
+.env
+
+# Python Cache
+__pycache__/
